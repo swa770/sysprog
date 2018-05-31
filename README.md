@@ -18,9 +18,17 @@ source: http://www.hackerschool.org/Sub_Html/HS_University/BOF/essential/PDF_Fil
    
  <Memory Map>
   
- User Memory vs Kern
- 0x00000000 -------------------------------------- 0xFFFFFFFF
-                                                  |Kernel Memory (1GB)   
+ 0x00000000 ------------------------------------------------------- 0xFFFFFFFF
+ |                        User Memory(3GB)                        |Kernel Memory (1GB)
+ 0x00000000 ------------------------------------------------------- 0xFFFFFFFF
+ | Code | Init Data | Uninit Data | Heap | Shared Library | Stack |Kernel Memory (1GB)
+
+Code Area: Store machine language that CPU can interpret
+DataArea (Init and Uninit): Store variables such as global variables and static variables
+Heap: Dynamic Memory
+Shared Library: Third Party Packages etc
+Stack: function args, return address, local variables, shell environment variables, etc
+
    
   
   
