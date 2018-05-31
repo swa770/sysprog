@@ -2,7 +2,6 @@
 System Programming Work
 
 # BufferOverFlow
-
 13. Memory Map
 source: http://www.hackerschool.org/Sub_Html/HS_University/BOF/essential/PDF_Files/13.pdf
 
@@ -22,13 +21,15 @@ source: http://www.hackerschool.org/Sub_Html/HS_University/BOF/essential/PDF_Fil
  |                        User Memory(3GB)                        |Kernel Memory (1GB)
  0x00000000 ------------------------------------------------------- 0xFFFFFFFF
  | Code | Init Data | Uninit Data | Heap | Shared Library | Stack |Kernel Memory (1GB)
-
+ 0x00000000 ------------------------------------------------------- 0xFFFFFFFF
+ |Free| Code ... | Heap |Free(L)| Shared Library |Free(L)| Stack |Kernel Memory (1GB)
+ 
 Code Area: Store machine language that CPU can interpret
 DataArea (Init and Uninit): Store variables such as global variables and static variables
 Heap: Dynamic Memory
 Shared Library: Third Party Packages etc
 Stack: function args, return address, local variables, shell environment variables, etc
+Free: Empty Memory
+Free(L): Large Empty Memory
 
-   
-  
-  
+* use show_memory_map.c to actually see the virtual address
