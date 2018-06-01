@@ -1,0 +1,67 @@
+# Process Management
+1.1 Process Status
+    Running:
+    Ready:
+    Blocked
+
+1.2 Status Change
+
+    Ready  ------ (Scheduled) ------>  Running
+          <--- (Time Slice Burst) ---    |
+                                         |
+      ^                                  |
+      |                                  |
+     (I/O Completion)                    |
+      |                                  |
+      |                                  |
+    Blocked  <----------(I/O request) ----   
+    
+    
+  1.3
+    TASK_RUNNING (Running)
+        - user-mode running
+        - kernel-mode running
+    
+    TASK_RUNNING (Ready)
+    TASK_INTERRUPTIBLE (Blocked)
+    TASK_UNINTERRUPTIBLE (Blocked)
+    
+    EXIT_ZOMBIE
+    TASK_STOPPED
+    
+    (without parent process)
+    EXIT_DEAD
+    TASK_DEAD
+
+2.1 PCB (Process Control Block)
+    Context: Minimal set of data about the state of process that must be saved to allow a task to be interrupted, and later continued from the same point.
+    Context Format:
+        <Basic Info> * This information is already stored and managed by virtual memory system
+             Text, Data, Heap, Stack, ...
+
+        <Kernel Info> * This information (Process Info) must be stored at PCB (task_struct in Linux)
+             Registers: general registers and special-purpose registers such as program counter, stack pointer, cpu-status register, virtual memory page table, etc 
+             Process ID or Process Group ID
+             User and Security
+             Process status
+             Priority, Schedule Policy
+             Parent, Child, Sibling Process Info
+             Program Info
+             Memory Info
+             OpenFile info
+             Signal Info
+             TimeSlice
+             Timer
+             Sync Info
+             IPC
+             etc
+        
+2.2 Context Switch
+    A context switch is the process of storing the state of a process or of a thread,
+    so that it can be restored and execution resumed from the same point later.
+    This allows multiple processes to share a single CPU, and is an essential feature of a multitasking operating system.
+
+
+
+
+3. System Programming
