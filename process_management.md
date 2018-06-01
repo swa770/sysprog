@@ -8,11 +8,11 @@
 > System process is created by kernel to manage the system and gets higher priority for resource scheduling
 
 ### 1.1 Process Status  
-    Running: CPU resource is allocated to the process  
-    Ready: scheduled by kernel. Ready to start the process when CPU is available  
-    Blocked: currently using other devices (I/O or Receiving Message. CPU is not necessary)  
+* Running: CPU resource is allocated to the process  
+* Ready: scheduled by kernel. Ready to start the process when CPU is available  
+* Blocked: currently using other devices (I/O or Receiving Message. CPU is not necessary)  
 
-1.2 Status Change
+### 1.2 Status Change
 
     Ready  ------ (Scheduled) ------>  Running  
            <--- (Time Slice Burst) ---    |    
@@ -25,21 +25,19 @@
     Blocked  <----------(I/O request) ----     
     
     
-  1.3
-    TASK_RUNNING (Running)
-        - user-mode running
-        - kernel-mode running
+ ### 1.3 Process Status In Detail
+
+* TASK_RUNNING (Running)
+ * user-mode running:
+ * kernel-mode running:
     
-    TASK_RUNNING (Ready)
-    TASK_INTERRUPTIBLE (Blocked)
-    TASK_UNINTERRUPTIBLE (Blocked)
-    
-    EXIT_ZOMBIE
-    TASK_STOPPED
-    
-    (without parent process)
-    EXIT_DEAD
-    TASK_DEAD
+* TASK_RUNNING (Ready)
+* TASK_INTERRUPTIBLE (Blocked)
+* TASK_UNINTERRUPTIBLE (Blocked)
+* EXIT_ZOMBIE
+* TASK_STOPPED
+* EXIT_DEAD
+* TASK_DEAD
 
 2.1 PCB (Process Control Block)
     Context: Minimal set of data about the state of process that must be saved to allow a task to be interrupted, and later continued from the same point.
