@@ -5,7 +5,7 @@
 > schedule, allocate, and withdraw its resources efficiently and
 > processes use system call to request resources they need  
 > There are two types of process, system process and user process. 
-> System process is created by kernel to manage the system and gets higher priority for scheduling
+> System process is created by kernel to manage the system and gets higher priority for resource scheduling
 
 ### 1.1 Process Status  
     Running: CPU resource is allocated to the process  
@@ -14,15 +14,15 @@
 
 1.2 Status Change
 
-    Ready  ------ (Scheduled) ------>  Running
-          <--- (Time Slice Burst) ---    |
-                                         |
-      ^                                  |
-      |                                  |
-     (I/O Completion)                    |
-      |                                  |
-      |                                  |
-    Blocked  <----------(I/O request) ----   
+    Ready  ------ (Scheduled) ------>  Running  
+           <--- (Time Slice Burst) ---    |    
+                                          |  
+      ^                                   |  
+      |                                   |  
+     (I/O Completion)                     |  
+      |                                   |  
+      |                                   |  
+    Blocked  <----------(I/O request) ----     
     
     
   1.3
