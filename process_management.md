@@ -52,27 +52,24 @@ Context includes...
 * Kernel Info 
 **This information (Process Info) must be stored at PCB (task_struct in Linux)**
 
->Registers: general registers and special-purpose registers such as program counter, stack pointer, cpu-status register, virtual memory page table, etc
-Process ID or Process Group ID
-User and Security
-Process status
-Priority, Schedule Policy
-Parent, Child, Sibling Process Info
-Program Info
-Memory Info
-OpenFile info
-Signal Info
-Time Slice
-Timer
-Sync Info
-IPC
-        
-2.2 Context Switch
-    A context switch is the process of storing the state of a process or of a thread,
-    so that it can be restored and execution resumed from the same point later.
-    This allows multiple processes to share a single CPU, and is an essential feature of a multitasking operating system.
+>Registers: general registers and special-purpose registers such as program counter, stack pointer, cpu-status register, virtual memory page table, etc  
+Process ID or Process Group ID  
+User and Security  
+Process status  
+Priority, Schedule Policy  
+Parent, Child, Sibling Process Info  
+Program Info  
+Memory Info  
+OpenFile info  
+Signal Info  
+Time Slice  
+Timer  
+Sync Info  
+IPC  
+   
+### 2.2 Context Switch
+A **context switch** is the process of storing the state of a process or of a thread,  
+so that it can be restored and execution resumed from the same point later.  
+This allows multiple processes to share a single CPU, and is an essential feature of a multitasking operating system.
 
-
-
-
-3. System Programming
+### 3 System Programming
