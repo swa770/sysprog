@@ -1,8 +1,16 @@
 # Process Management
-1.1 Process Status
-    Running:
-    Ready:
-    Blocked
+### Intro
+> Process requires kernel resources such as CPU, Memoery, Devices, Files, and other resources to be run.  
+> So, multiple processes compete for these resources. It is kernel's role to  
+> schedule, allocate, and withdraw its resources efficiently and
+> processes use system call to request resources they need  
+> There are two types of process, system process and user process. 
+> System process is created by kernel to manage the system and gets higher priority for scheduling
+
+### 1.1 Process Status  
+    Running: CPU resource is allocated to the process  
+    Ready: scheduled by kernel. Ready to start the process when CPU is available  
+    Blocked: currently using other devices (I/O or Receiving Message. CPU is not necessary)  
 
 1.2 Status Change
 
