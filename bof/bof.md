@@ -12,9 +12,9 @@ Therefore, **32bit CPU can utilize memory addresses no more than 4GB.**
  ### How Memory is used?
  
  > 0x00000000 ------------------------------------------------------- 0xFFFFFFFF  
- > |________________________User Memory(3GB)___________________________|_Kernel Memory (1GB)_ 
- > |_Code_|_Init Data_|_Uninit Data_|_Heap_|_Shared Library_|_Stack___|_Kernel Memory (1GB)_  
- > |**Free**| Code ... | Heap |**Free(L)**| Shared Library |**Free(L)**| Stack |Kernel Memory (1GB)  
+ > | User Memory(3GB) | Kernel Memory(1GB) |  
+ > | Code | Init Data | Uninit Data | Heap | Shared Library | Stack | Kernel Memory(1GB) |  
+ > | **Free** | Code | ... | Heap | **Free(L)** | Shared Library | **Free(L)** | Stack | Kernel Memory(1GB) |  
  
 **Code**: Store machine language that CPU can interpret  
 **Data** (Init and Uninit): Store variables such as global variables and static variables  
@@ -27,3 +27,16 @@ Therefore, **32bit CPU can utilize memory addresses no more than 4GB.**
 **Even though size of RAM is less than 4GB, this memory map remains the same by using memory management techniques called "Virtual Memory", "Paging", and "Swapping"**
    
 Check [show_memory_map.c](https://github.com/swa770/sysprog/blob/master/bof/show_memory_map.c) to see the virtual address
+
+## Few things about Stack in Memory Map
+#### Size
+Stack Datasize == Program Register Size. For 32-bit CPU, size of each stack data is 4 bytes
+#### How Stack Grows
+Opposite to Heap, Stack grows from high to low memory addresses.
+
+> | 0x00000000 ------------------------------------------------------- 0xFFFFFFFF |   
+> | ... | Heap **--- Grow --->** | Shared Library | **<--- Grow ---** Stack | ... |  
+
+Why?
+  1. to prevent stack from invading Kernel Area
+  2. As head and stack grows toward each other, memory can be utilized efficiently
