@@ -12,20 +12,20 @@ Therefore, **32bit CPU can utilize memory addresses no more than 4GB.**
  ### How Memory is used?
  
  0x00000000 ------------------------------------------------------- 0xFFFFFFFF  
- |                        User Memory(3GB)                          |Kernel Memory (1GB)  
+ |________________________User Memory(3GB)___________________________|_Kernel Memory (1GB)_ 
  0x00000000 ------------------------------------------------------- 0xFFFFFFFF  
- | Code | Init Data | Uninit Data | Heap | Shared Library | Stack   |Kernel Memory (1GB)  
+ |_Code_|_Init Data_|_Uninit Data_|_Heap_|_Shared Library_|_Stack___|_Kernel Memory (1GB)_  
  0x00000000 ------------------------------------------------------- 0xFFFFFFFF  
  |**Free**| Code ... | Heap |**Free(L)**| Shared Library |**Free(L)**| Stack |Kernel Memory (1GB)  
  
-Code: Store machine language that CPU can interpret
-Data (Init and Uninit): Store variables such as global variables and static variables
-Heap: Dynamic Memory
-Shared Library: Third Party Packages etc
-Stack: function args, return address, local variables, shell environment variables, etc
-Free: Empty Memory
-Free(L): Large Empty Memory
+**Code**: Store machine language that CPU can interpret  
+**Data** (Init and Uninit): Store variables such as global variables and static variables  
+**Heap**: Dynamic Memory  
+**Shared Library**: Third Party Packages etc  
+**Stack**: function args, return address, local variables, shell environment variables, etc  
+**Free**: Empty Memory  
+**Free(L)**: Large Empty Memory  
 
-Even though size of RAM is less than 4GB, this memory map remains the same by using memory management techniques called "Virtual Memory", "Paging", and "Swapping"
+**Even though size of RAM is less than 4GB, this memory map remains the same by using memory management techniques called "Virtual Memory", "Paging", and "Swapping"**
    
-* use show_memory_map.c to actually see the virtual address
+Check [show_memory_map.c](https://github.com/swa770/sysprog/blob/master/bof/show_memory_map.c) to see the virtual address
