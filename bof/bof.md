@@ -1,4 +1,20 @@
 # BufferOverFlow Notes
+## Basics of Buffer and Memory in C
+### What is buffer?
+
+Buffer is temporary memory storage on physical storage such as registers, cache and virtual memory. It is used to hold data when data is moved one place(process) to other places(processes).
+
+Ex) variable used as buffer
+```
+int main(void) {
+    char buffer[20];
+    printf("Type your name:");
+    gets(buffer);
+    printf("Hello, %s", name);
+    return 0;
+}
+```
+
 ## Memory Map
 ### What is range of memory addresses?
 
