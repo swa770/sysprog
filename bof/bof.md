@@ -3,20 +3,18 @@
 ### What is range of memory addresses?
 
 Assume that we have 32 bit CPU. Then, range of possible memory addresses would be   
-    binary: 0 ~ 11111111111111111111111111111111
-    decimal: 0 ~ 4294967295 (= 4GB)  
-    hexadecimal: 0x0 ~ 0xFFFFFFFF  
+> binary: 0 ~ 11111111111111111111111111111111  
+> decimal: 0 ~ 4294967295 (= 4GB)  
+> hexadecimal: 0x0 ~ 0xFFFFFFFF    
  
 Therefore, **32bit CPU can utilize memory addresses no more than 4GB.**
  
  ### How Memory is used?
  
- 0x00000000 ------------------------------------------------------- 0xFFFFFFFF  
- |________________________User Memory(3GB)___________________________|_Kernel Memory (1GB)_ 
- 0x00000000 ------------------------------------------------------- 0xFFFFFFFF  
- |_Code_|_Init Data_|_Uninit Data_|_Heap_|_Shared Library_|_Stack___|_Kernel Memory (1GB)_  
- 0x00000000 ------------------------------------------------------- 0xFFFFFFFF  
- |**Free**| Code ... | Heap |**Free(L)**| Shared Library |**Free(L)**| Stack |Kernel Memory (1GB)  
+ > 0x00000000 ------------------------------------------------------- 0xFFFFFFFF  
+ > |________________________User Memory(3GB)___________________________|_Kernel Memory (1GB)_ 
+ > |_Code_|_Init Data_|_Uninit Data_|_Heap_|_Shared Library_|_Stack___|_Kernel Memory (1GB)_  
+ > |**Free**| Code ... | Heap |**Free(L)**| Shared Library |**Free(L)**| Stack |Kernel Memory (1GB)  
  
 **Code**: Store machine language that CPU can interpret  
 **Data** (Init and Uninit): Store variables such as global variables and static variables  
